@@ -25,24 +25,24 @@ class DotLabel(QtWidgets.QFrame):
 
         qp = QtGui.QPainter(self)
         qp.setRenderHint(QtGui.QPainter.Antialiasing)
-        rect = QtCore.QRect(self._height, 0, self.width(), self.height())
+        rect = QtCore.QRect(self._height, 0, self.width(), self._height)
         qp.drawText(rect, QtCore.Qt.AlignVCenter, self._name)
         qp.setBrush(self.get_dot_color())
         qp.setPen(QtCore.Qt.NoPen)
-        qp.drawEllipse(QtCore.QPoint(self.height()*.5, self.height()*.5), self.height()*.20, self.height()*.20)
+        qp.drawEllipse(QtCore.QPoint(self._height*.5, self._height*.5), self._height*.20, self._height*.20)
         qp.end()
 
     dotColor = QtCore.Property(QtGui.QColor, get_dot_color, set_dot_color)
 
 
-def save_widget_png(widget):
+def save_widget_png(widget, file_name):
 
     # make the bg transparent
     p = widget.palette()
     p.setColor(widget.backgroundRole(), QtGui.QColor(0, 0, 0, 0))
     widget.setPalette(p)
 
-    widget.grab().save("image.png");
+    widget.grab().save(file_name);
 
 class TestWidget(QtWidgets.QWidget):
     
@@ -71,5 +71,5 @@ if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
     w = TestWidget()
     w.show()
-    save_widget_png(w)
+    save_widget_png(w, "widget_screenshot.png")
     app.exec_()
