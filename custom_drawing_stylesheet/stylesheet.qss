@@ -1,0 +1,28 @@
+DotLabel {
+    font-family: "Futura";
+}
+
+DotLabel#dot_0 {
+    border-radius: 2px;
+    border: 1px solid rgb(253, 151, 32);
+    color: rgb(253, 151, 32);
+    font-size: 12px;
+    qproperty-dotColor: rgb(253, 151, 32);
+}
+
+DotLabel#dot_1 {
+    border-radius: 4px;
+    color: rgb(166, 226, 46);
+    font-size: 24px;
+    qproperty-dotColor: rgb(166, 226, 46);
+    background-color: rgb(90,90,90);
+}
+
+DotLabel#dot_2 {
+    border-radius: 6px;
+    color: rgb(102, 217, 239);
+    font-size: 40px;
+    font-family: "Futura";
+    qproperty-dotColor: rgb(102, 217, 239);
+    background-color: rgb(90,90,90);
+}
